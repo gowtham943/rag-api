@@ -26,3 +26,6 @@ This file documents the Git undo and recovery tools I've learned.
 - git cherry-pick <SHA>: apply a specific commit to the current branch
 - Creates a new commit with the same changes but a different SHA
 - Use for hotfixes: fix on feature branch, cherry-pick to main
+
+
+- WRONG: always rebase shared branches to keep history clean
