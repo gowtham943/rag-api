@@ -15,9 +15,6 @@ embedding_function = OllamaEmbeddingFunction(model_name="nomic-embed-text", url=
 collection = client.get_collection(name="knowledge_base", embedding_function=embedding_function)
 
 
-
-
-# Define the expected shape of incoming data for the POST endpoint
 class DocumentSubmission(BaseModel):
     user_name: str  # Who this profile belongs to
     content: str  # The profile text to store
