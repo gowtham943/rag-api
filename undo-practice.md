@@ -27,3 +27,5 @@ This file documents the Git undo and recovery tools I've learned.
 - Creates a new commit with the same changes but a different SHA
 - Use for hotfixes: fix on feature branch, cherry-pick to main
 
+
+- WRONG: always rebase shared branches to keep history clean test
