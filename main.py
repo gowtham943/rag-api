@@ -5,6 +5,10 @@ from pydantic import BaseModel
 from chromadb.utils.embedding_functions.ollama_embedding_function import OllamaEmbeddingFunction
 app = FastAPI()
 
+class DocumentSubmission(BaseModel):
+    user_name: str  
+    content: str 
+
 # Initialize ChromaDB client
 client = chromadb.PersistentClient(path="./chroma_db")
 
@@ -13,15 +17,6 @@ embedding_function = OllamaEmbeddingFunction(model_name="nomic-embed-text", url=
 
 # Get the collection for the knowledge base
 collection = client.get_collection(name="knowledge_base", embedding_function=embedding_function)
-
-
-
-
-# Define the expected shape of incoming data for the POST endpoint
-class DocumentSubmission(BaseModel):
-    user_name: str  # Who this profile belongs to
-    content: str  # The profile text to store
-
 
 @app.post("/documents")  # POST endpoint - accepts data in the request body
 def add_document(submission: DocumentSubmission):
