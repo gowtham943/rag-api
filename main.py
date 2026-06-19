@@ -18,6 +18,7 @@ embedding_function = OllamaEmbeddingFunction(model_name="nomic-embed-text", url=
 # Get the collection for the knowledge base
 collection = client.get_collection(name="knowledge_base", embedding_function=embedding_function)
 
+
 @app.post("/documents")  # POST endpoint - accepts data in the request body
 def add_document(submission: DocumentSubmission):
     # Split the submitted profile into chunks by paragraph
